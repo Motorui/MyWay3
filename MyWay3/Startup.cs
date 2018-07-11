@@ -12,7 +12,6 @@ using Microsoft.EntityFrameworkCore;
 using MyWay3.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MyWay3.Models;
 
 namespace MyWay3
 {
@@ -40,8 +39,6 @@ namespace MyWay3
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-
-            services.AddDbContext<MywayDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
